@@ -41,7 +41,7 @@
           ./hosts/default/configuration.nix
 
           # Environment
-          ./modules/nixos/environments/plasma.nix
+          ./modules/environments/plasma.nix
 
           # Modules
           ./modules/nixos/nvidia.nix

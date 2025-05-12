@@ -68,6 +68,7 @@
   main-user = {
     enable = true;
     userName = "yu3liang";
+    description = "yu3liang";
   };
 
 
