@@ -39,7 +39,10 @@
 
           # Main
           ./hosts/default/configuration.nix
-          
+
+          # Environment
+          ./modules/nixos/environments/plasma.nix
+
           # Modules
           ./modules/nixos/nvidia.nix
 

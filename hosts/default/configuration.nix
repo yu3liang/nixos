@@ -4,6 +4,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ../../modules/nixos/main-user.nix
     inputs.home-manager.nixosModules.default
   ];
 
@@ -44,20 +45,6 @@
     LC_TIME = "pt_BR.UTF-8";
   };
 
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "intl";
-  };
-
   # Configure console keymap
   console.keyMap = "us-acentos";
 
@@ -78,16 +65,9 @@
   };
 
 
-  # User
-  users.users.yu3liang = {
-    isNormalUser = true;
-    description = "yu3liang";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      vim
-      neovim
-      librewolf
-    ];
+  main-user = {
+    enable = true;
+    userName = "yu3liang";
   };
 
 
@@ -107,7 +87,15 @@
   environment.systemPackages = with pkgs; [
     git
     wget
+    vim
+    fish
+    neovim
+    librewolf
   ];
+
+  
+  # Enable fish shell
+  programs.fish.enable = true;  
 
 
   # Enable the OpenSSH daemon
