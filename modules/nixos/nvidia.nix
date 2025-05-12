@@ -17,11 +17,11 @@
     nvidiaSettings = true;
 
     package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
 
-    # Display synchronization and optimization
-    environment.variables = {
-      "__GL_SYNC_DISPLAY_DEVICE" = "HDMI-0";
-      "VDPAU_NVIDIA_SYNC_DISPLAY_DEVICE" = "HDMI-0";
-    };
+  # Display synchronization and optimization
+  environment.variables = {
+    "__GL_SYNC_DISPLAY_DEVICE" = "HDMI-0";
+    "VDPAU_NVIDIA_SYNC_DISPLAY_DEVICE" = "HDMI-0";
   };
 }
