@@ -36,7 +36,14 @@
       nixosConfigurations.default = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
+
+          # Main
           ./hosts/default/configuration.nix
+          
+          # Modules
+          ./modules/nixos/nvidia.nix
+
+          # Inputs
           inputs.home-manager.nixosModules.default
         ];
       };

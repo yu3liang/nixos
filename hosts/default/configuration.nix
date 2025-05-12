@@ -3,7 +3,7 @@
 
 {
   imports = [
-     ./hardware-configuration.nix
+    ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
   ];
 
@@ -86,7 +86,7 @@
     packages = with pkgs; [
       vim
       neovim
-      libreoffice
+      librewolf
     ];
   };
 
