@@ -40,11 +40,22 @@
           # Main
           ./hosts/default/configuration.nix
 
+          # Base
+          ./modules/nixos/bootloader.nix
+          ./modules/nixos/networking.nix
+          ./modules/nixos/audio.nix
+          ./modules/nixos/nvidia.nix
+          ./modules/nixos/firewall.nix
+          ./modules/nixos/localization.nix
+          ./modules/nixos/printing.nix
+          ./modules/nixos/base-pkgs.nix
+          ./modules/nixos/system.nix
+
           # Environment
           ./modules/environments/plasma.nix
 
           # Modules
-          ./modules/nixos/nvidia.nix
+
 
           # Inputs
           inputs.home-manager.nixosModules.default
