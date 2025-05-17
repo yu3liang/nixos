@@ -34,6 +34,7 @@
   # User dotfiles
   home.file = {
     ".config/hypr/hyprland.conf".source = ../../modules/home-manager/hyprland/hyprland.conf;
+    ".config/kitty/kitty.conf".source = ../../modules/home-manager/kitty/kitty.conf;
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
@@ -64,6 +65,14 @@
   #
   home.sessionVariables = {
     # EDITOR = "emacs";
+  };
+
+  programs.fish = {
+    enable = true;
+    
+    interactiveShellInit = ''
+      fastfetch
+    '';
   };
 
   # Let Home Manager install and manage itself
