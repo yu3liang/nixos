@@ -33,8 +33,8 @@
   
   # User dotfiles
   home.file = {
-    ".config/hypr/hyprland.conf".source = ../../modules/home-manager/hyprland/hyprland.conf;
-    ".config/kitty/kitty.conf".source = ../../modules/home-manager/kitty/kitty.conf;
+    ".config/hypr/hyprland.conf".source = ../../modules/home-manager/dotfiles/hyprland/hyprland.conf;
+    ".config/kitty/kitty.conf".source = ../../modules/home-manager/dotfiles/kitty/kitty.conf;
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.

@@ -20,6 +20,9 @@
     libnotify
     swww
     rofi-wayland
+    grim
+    slurp
+    wl-clipboard
   ];
 
 
