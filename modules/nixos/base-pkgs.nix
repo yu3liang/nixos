@@ -7,6 +7,8 @@
     kitty
     fish
     librewolf
+    fastfetch
+    yazi
   ];
 
 

@@ -53,6 +53,7 @@
 
           # Environment
           ./modules/environments/plasma.nix
+          ./modules/environments/hyprland.nix
 
           # Modules
 
