@@ -1,6 +1,14 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    # Hyprland
+    ../../modules/home-manager/hyprland-config.nix
+    # Programs
+    ../../modules/home-manager/programs/kitty.nix
+    ../../modules/home-manager/programs/fastfetch.nix
+  ];
+
   home.username = "yu3liang";
   home.homeDirectory = "/home/yu3liang";
   home.stateVersion = "24.11"; # Don't change unless necessary
@@ -28,25 +36,8 @@
     trigger-control
     wacomtablet
 
-
   ];
   
-  # User dotfiles
-  home.file = {
-    ".config/hypr/hyprland.conf".source = ../../modules/home-manager/dotfiles/hyprland/hyprland.conf;
-    ".config/kitty/kitty.conf".source = ../../modules/home-manager/dotfiles/kitty/kitty.conf;
-    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-    # # symlink to the Nix store copy.
-    # ".screenrc".source = dotfiles/screenrc;
-
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
-  };
-
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a
   # shell provided by Home Manager. If you don't want to manage your shell
@@ -67,9 +58,10 @@
     # EDITOR = "emacs";
   };
 
+  # Fish enabling and fastfetch execution
   programs.fish = {
     enable = true;
-    
+
     interactiveShellInit = ''
       fastfetch
     '';
