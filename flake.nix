@@ -50,6 +50,7 @@
           ./modules/nixos/printing.nix
           ./modules/nixos/base-pkgs.nix
           ./modules/nixos/system.nix
+          ./modules/nixos/steam.nix
 
           # Environment
           ./modules/environments/plasma.nix

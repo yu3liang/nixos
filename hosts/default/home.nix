@@ -4,6 +4,7 @@
   imports = [
     # Hyprland
     ../../modules/home-manager/hyprland-config.nix
+
     # Programs
     ../../modules/home-manager/programs/kitty.nix
     ../../modules/home-manager/programs/fastfetch.nix
@@ -22,9 +23,11 @@
     emacs
     anki
 
+    # College
+    ciscoPacketTracer8
+
     # Communication
     discord
-    teams-for-linux
 
     # Media
     spotify
@@ -35,6 +38,7 @@
     dualsensectl
     trigger-control
     wacomtablet
+    firefox
 
   ];
   
