@@ -3,22 +3,27 @@
 
 {
   imports = [
+    # Hardware configuration module (needed)
     ./hardware-configuration.nix
+
+    # Main-user module for user creation
     ../../modules/nixos/main-user.nix
+
+    # Home-manager module
     inputs.home-manager.nixosModules.default
   ];
 
   # Enable Flakes on NixOS
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # Main user
+  # Main user configuration
   main-user = {
     enable = true;
     userName = "yu3liang";
     description = "yu3liang";
   };
 
-  # Home-manager
+  # Home-manager configuration
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     users = {
