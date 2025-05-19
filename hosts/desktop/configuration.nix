@@ -1,5 +1,5 @@
 
-{ lib, ... }:
+{ lib, inputs, ... }:
 
 let
   vars = import ../../variables.nix;

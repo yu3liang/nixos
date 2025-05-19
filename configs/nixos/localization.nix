@@ -6,6 +6,7 @@
 
   # Sets the default system language/locale to US English.
   i18n.defaultLocale = "en_US.UTF-8";
+  
   # Sets specific locale categories (address, measurement, money, etc.)
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "pt_BR.UTF-8";

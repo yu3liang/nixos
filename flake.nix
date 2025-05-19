@@ -100,43 +100,20 @@
 
       # Desktop
       nixosConfigurations = {
-        ${vars.desktop} = lib.nixosSystem {
+        tuxedo = lib.nixosSystem {
           inherit system;
           specialArgs = { inherit inputs; };
           modules = [
             ./hosts/desktop/configuration.nix
             inputs.nixvim.nixosModules.nixvim
-
-            # # Main
-            # ./hosts/desktop/configuration.nix
-
-            # # Base
-            # ./modules/nixos/bootloader.nix
-            # ./modules/nixos/networking.nix
-            # ./modules/nixos/audio.nix
-            # ./modules/nixos/nvidia.nix
-            # ./modules/nixos/firewall.nix
-            # ./modules/nixos/localization.nix
-            # ./modules/nixos/printing.nix
-            # ./modules/nixos/base-pkgs.nix
-            # ./modules/nixos/system.nix
-            # ./modules/nixos/steam.nix
-
-            # # Environment
-            # ./modules/environments/plasma/plasma.nix
-            # ./modules/environments/hyprland/hyprland.nix
-
-            # # Inputs
-            # inputs.home-manager.nixosModules.default
-            # inputs.nixvim.nixosModules.nixvim
-        ];
+          ];
+        };
       };
-    };
 
     # Home configuration
     # Desktop
     homeConfigurations = {
-      ${vars.desktop} = home-manager.lib.homeManagerConfiguration {
+      tuxedo = home-manager.lib.homeManagerConfiguration {
         extraSpecialArgs = { inherit inputs; };
         inherit pkgs;
         modules = [
