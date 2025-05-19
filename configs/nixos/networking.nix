@@ -9,7 +9,7 @@ in
   networking.hostName = vars.desktop;
 
   # Enable DHCP for network interfaces
-  useDHCP = libs.mkDefault true;
+  networking.useDHCP = libs.mkDefault true;
 
   # Enable network manager
   networking.networkmanager.enable = true;
