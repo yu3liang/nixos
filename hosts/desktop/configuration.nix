@@ -7,14 +7,22 @@ in
 
 {
   imports = [
-    # Hardware configuration module (needed)
+    # Hardware configuration (needed)
     ./hardware-configuration.nix
 
-    # Main-user module for user creation
+    # NixOS basic configuration
+    ../../configs/nixos/audio.nix
+    ../../configs/nixos/base-pkgs.nix
+    ../../configs/nixos/bluetooth.nix
+    ../../configs/nixos/bootloader.nix
+    ../../configs/nixos/localization.nix
     ../../configs/nixos/main-user.nix
-
-    # Home-manager module
-    inputs.home-manager.nixosModules.default
+    ../../configs/nixos/networking.nix
+    ../../configs/nixos/printing.nix
+    ../../configs/nixos/services.nix
+    ../../configs/nixos/system.nix
+    # ../../nixos.nix
+    # ../../packages.nix
   ];
 
   # Enable Flakes on NixOS

@@ -1,10 +1,12 @@
-{ pkgs, config, libs, ... }:
+{ ... }:
 
 {
-  # Localization
+  # Sets your system timezone.
   time.timeZone = "America/Sao_Paulo";
 
+  # Sets the default system language/locale to US English.
   i18n.defaultLocale = "en_US.UTF-8";
+  # Sets specific locale categories (address, measurement, money, etc.)
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "pt_BR.UTF-8";
     LC_IDENTIFICATION = "pt_BR.UTF-8";
@@ -17,6 +19,6 @@
     LC_TIME = "pt_BR.UTF-8";
   };
 
-  # Configure console keymap
+  # Sets the console keyboard layout
   console.keyMap = "us-acentos";
 }
