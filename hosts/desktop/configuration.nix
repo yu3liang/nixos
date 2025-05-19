@@ -23,6 +23,10 @@ in
     ../../configs/nixos/system.nix
     # ../../nixos.nix
     # ../../packages.nix
+
+    # Enable Home Manager
+    inputs.home-manager.nixosModules.home-manager
+
   ];
 
   # Enable Flakes on NixOS
