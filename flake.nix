@@ -96,12 +96,12 @@
     {
       # NixOS configuration output
       # Used with `nixos-rebuild --flake .#<hostname>`
-      nixosConfigurations.default = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
 
           # Main
-          ./hosts/default/configuration.nix
+          ./hosts/desktop/configuration.nix
 
           # Base
           ./modules/nixos/bootloader.nix
@@ -116,8 +116,8 @@
           ./modules/nixos/steam.nix
 
           # Environment
-          ./modules/environments/plasma.nix
-          ./modules/environments/hyprland.nix
+          ./modules/environments/plasma/plasma.nix
+          ./modules/environments/hyprland/hyprland.nix
 
           # Inputs
           inputs.home-manager.nixosModules.default

@@ -3,11 +3,10 @@
 {
   imports = [
     # Hyprland configuration
-    ../../modules/home-manager/hyprland-config.nix
+    ../../configs/home-manager/hyprland-config.nix # TODO
 
-    # Programs configuration
-    ../../modules/home-manager/programs/kitty.nix
-    ../../modules/home-manager/programs/fastfetch.nix
+    # Programs configuration link
+    ./link-dotfiles.nix
   ];
 
   home.username = "yu3liang";

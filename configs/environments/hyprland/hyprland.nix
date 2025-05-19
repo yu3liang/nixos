@@ -1,4 +1,4 @@
-{pkgs, ...}: 
+{ config, pkgs, ...}: 
 
 {
   # Enable the Hyprland compositor
@@ -30,4 +30,7 @@
     enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
+
+  home.file.".config/hypr/hyprland.conf".source = ./dotfiles/hyprland/hyprland.conf; # TODO
+
 }

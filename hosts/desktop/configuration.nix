@@ -7,7 +7,7 @@
     ./hardware-configuration.nix
 
     # Main-user module for user creation
-    ../../modules/nixos/main-user.nix
+    ../../configs/nixos/main-user.nix
 
     # Home-manager module
     inputs.home-manager.nixosModules.default
