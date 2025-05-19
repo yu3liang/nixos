@@ -1,5 +1,9 @@
 
-{ config, pkgs, lib, inputs, ... }:
+{ lib, ... }:
+
+let
+  vars = import ../../variables.nix;
+in
 
 {
   imports = [

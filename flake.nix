@@ -89,40 +89,60 @@
 
   outputs = { self, nixpkgs, home-manager, nixvim, ... }@inputs:
     let
+      vars = import ./variables.nix;
       system = "x86_64-linux";
       lib = nixpkgs.lib;
       pkgs = nixpkgs.legacyPackages.${system};
     in
     {
-      # NixOS configuration output
+      # NixOS system configuration output
       # Used with `nixos-rebuild --flake .#<hostname>`
-      nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        modules = [
 
-          # Main
-          ./hosts/desktop/configuration.nix
+      # Desktop
+      nixosConfigurations = {
+        ${vars.desktop} = lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./hosts/desktop/configuration.nix
+            inputs.nixvim.nixosModules.nixvim
 
-          # Base
-          ./modules/nixos/bootloader.nix
-          ./modules/nixos/networking.nix
-          ./modules/nixos/audio.nix
-          ./modules/nixos/nvidia.nix
-          ./modules/nixos/firewall.nix
-          ./modules/nixos/localization.nix
-          ./modules/nixos/printing.nix
-          ./modules/nixos/base-pkgs.nix
-          ./modules/nixos/system.nix
-          ./modules/nixos/steam.nix
+            # # Main
+            # ./hosts/desktop/configuration.nix
 
-          # Environment
-          ./modules/environments/plasma/plasma.nix
-          ./modules/environments/hyprland/hyprland.nix
+            # # Base
+            # ./modules/nixos/bootloader.nix
+            # ./modules/nixos/networking.nix
+            # ./modules/nixos/audio.nix
+            # ./modules/nixos/nvidia.nix
+            # ./modules/nixos/firewall.nix
+            # ./modules/nixos/localization.nix
+            # ./modules/nixos/printing.nix
+            # ./modules/nixos/base-pkgs.nix
+            # ./modules/nixos/system.nix
+            # ./modules/nixos/steam.nix
 
-          # Inputs
-          inputs.home-manager.nixosModules.default
-          inputs.nixvim.nixosModules.nixvim
+            # # Environment
+            # ./modules/environments/plasma/plasma.nix
+            # ./modules/environments/hyprland/hyprland.nix
+
+            # # Inputs
+            # inputs.home-manager.nixosModules.default
+            # inputs.nixvim.nixosModules.nixvim
         ];
       };
     };
+
+    # Home configuration
+    # Desktop
+    homeConfigurations = {
+      ${vars.desktop} = home-manager.lib.homeManagerConfiguration {
+        extraSpecialArgs = { inherit inputs; };
+        inherit pkgs;
+        modules = [
+          ./hosts/desktop/home.nix
+        ];
+      };
+    };
+  };
 }

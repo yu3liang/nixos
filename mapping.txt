@@ -1,56 +1,22 @@
-./nixos/
-├── ./hosts/ (>>>>> possible environments)
-│   └── ./desktop/ (>>>>> desktop environment build files that use modules from ../../configs/)
-│       ├── ./hardware-configuration.nix
-│       ├── ./configuration.nix (>>>>> declare basic PC/NixOS modules, e.g. ../../configs/nixos/audio.nix)
-│       │
-│       ├── ./home.nix (>>>>> declare all user-specific configurations and link using ./link-dotfiles.nix)
-│       ├── ./home-programs.nix (>>>>> declare base programs for user, e.g. ags, kitty, fastfetch, git, etc.)
-│       └── ./home-link-dotfiles.nix (>>>>> symlink ../../configs/home/dotfiles/ folders to ~/.config/)
-│
-│
-│
-├── ./configs/ (>>>>> main configuration files/modules)
-│   ├── ./environments/
-│   │   ├── ./hyprland/ (>>>>> centralize all hyprland environment configs)
-│   │   │   └── ./hyprland.nix
-│   │   │ 
-│   │   └── ./plasma/
-│   │       └── ./plasma.nix
-│   │
-│   ├── ./video/
-│   │   └── ./nvidia.nix
-│   │
-│   ├── ./home/
-│   │   ├── ./dotfiles/
-│   │   │   ├── ./fastfetch/
-│   │   │   │   └── ./config.jsonc
-│   │   │   │
-│   │   │   ├── ./hyprland/
-│   │   │   │   └── ./hyprland.conf
-│   │   │   │
-│   │   │   └── ./kitty/
-│   │   │       └── ./kitty.conf
-│   │   │
-│   │   ├── ./assets/
-│   │   │   └── ./...
-│   │   │
-│   │   └── ./programs/
-│   │       └── ./steam.nix
-│   │
-│   └── ./nixos/ (basic PC/NixOS functionalities)
-│       ├── ./audio.nix
-│       ├── ./base-pkgs.nix
-│       ├── ./bootloader.nix
-│       ├── ./firewall.nix
-│       ├── ./localization.nix
-│       ├── ./main-user.nix*****
-│       ├── ./networking.nix
-│       ├── ./printing.nix
-│       └── ./system.nix
-│
-│
-│
-├── ./flake.lock
-├── ./flake.nix (inputs [dependencies] -> output [full system config - desktop], import configuration.nix for user output and home.nix for home-manager output)
-└── ./variables.nix (declare user-specific variables)
+./configs/nixos/services.nix
+./configs/nixos/base-pkgs.nix
+./configs/nixos/bootloader.nix
+./configs/nixos/firewall.nix
+./configs/nixos/localization.nix
+./configs/nixos/main-user.nix
+./configs/nixos/system.nix
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+./configs/video/nvidia.nix
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+./configs/environments/hyrpland/hyprland.nix
+./configs/environments/plasma/plasma.nix
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+./configs/home/programs/steam.nix
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+./hosts/desktop/configuration.nix
+./hosts/desktop/home-programs.nix
+./hosts/desktop/home.nix

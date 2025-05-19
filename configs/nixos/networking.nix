@@ -1,8 +1,13 @@
 { pkgs, config, libs, ... }:
 
+let
+  vars = import ../../variables.nix;
+in
+
 {
   # Hostname & Networking
-  networking.hostName = "nixos";
+  networking.hostName = vars.desktop;
+  useDHCP = lib.mkDefault true;
   networking.networkmanager.enable = true;
 
   # Wireless support via wpa_supplicant
