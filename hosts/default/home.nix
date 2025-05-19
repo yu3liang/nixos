@@ -2,9 +2,10 @@
 
 {
   imports = [
-    # Hyprland
+    # Hyprland configuration
     ../../modules/home-manager/hyprland-config.nix
-    # Programs
+
+    # Programs configuration
     ../../modules/home-manager/programs/kitty.nix
     ../../modules/home-manager/programs/fastfetch.nix
   ];
@@ -38,29 +39,13 @@
 
   ];
   
-  # Home Manager can also manage your environment variables through
-  # 'home.sessionVariables'. These will be explicitly sourced when using a
-  # shell provided by Home Manager. If you don't want to manage your shell
-  # through Home Manager then you have to manually source 'hm-session-vars.sh'
-  # located at either
-  #
-  #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  /etc/profiles/per-user/yu3liang/etc/profile.d/hm-session-vars.sh
-  #
   home.sessionVariables = {
     # EDITOR = "emacs";
   };
 
   # Fish enabling and fastfetch execution
   programs.fish = {
-    enable = true;
+    enable = true; # Already enabled at ~/nixos/modules/nixos/base-pkgs.nix
 
     interactiveShellInit = ''
       fastfetch
