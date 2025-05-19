@@ -5,7 +5,7 @@
   nixpkgs.config.allowUnfree = true;
 
   # Enables the OpenSSH server for remote access.
-  openssh = {
+  services.openssh = {
     enable = true;
     settings = {
       # Disables password login for SSH to your machine (use keys instead).
