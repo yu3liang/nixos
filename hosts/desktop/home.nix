@@ -2,11 +2,9 @@
 
 {
   imports = [
-    # Hyprland configuration
-    ../../configs/home-manager/hyprland-config.nix # TODO
-
+    ../../configs/environments/hyprland/hyprland.nix
     # Programs configuration link
-    ./link-dotfiles.nix
+    ./home-link-dotfiles.nix
   ];
 
   home.username = "yu3liang";

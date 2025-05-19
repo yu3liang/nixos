@@ -1,6 +1,7 @@
 { pkgs, config, libs, ... }:
 
 let
+  # pkgs = import <nixpkgs> {};
   vars = import ../../variables.nix;
 in
 
@@ -9,7 +10,7 @@ in
   networking.hostName = vars.desktop;
 
   # Enable DHCP for network interfaces
-  networking.useDHCP = libs.mkDefault true;
+  # networking.useDHCP = lib.mkDefault true;
 
   # Enable network manager
   networking.networkmanager.enable = true;

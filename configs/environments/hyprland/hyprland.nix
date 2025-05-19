@@ -7,10 +7,10 @@
     xwayland.enable = true;
   };
 
-  environment.sessionVariables = {
-    WLR_NO_HARDWARE_CURSORS = "1"; # Fix invisible cursor
-    NIXOS_OZONE_WL = "1"; # Hint electron apps (e.g. Discord) to use wayland
-  };   
+  # environment.sessionVariables = {
+  #   WLR_NO_HARDWARE_CURSORS = "1"; # Fix invisible cursor
+  #   NIXOS_OZONE_WL = "1"; # Hint electron apps (e.g. Discord) to use wayland
+  # };   
 
   # Hyprland environment packages
   environment.systemPackages = with pkgs;[
@@ -30,7 +30,4 @@
     enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
-
-  home.file.".config/hypr/hyprland.conf".source = ./dotfiles/hyprland/hyprland.conf; # TODO
-
 }
