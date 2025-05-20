@@ -19,7 +19,7 @@
   };
 
   # Activate KDE Plasma 6 and SDDM login manager
-  services.displayManager.sddm.enable = true;
+  # services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
 
   # Display synchronization and optimization
