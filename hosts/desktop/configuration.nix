@@ -39,8 +39,6 @@ in
       fastfetch
       yazi
     ];
-    # Enable fish shell
-    programs.fish.enable = true;
   };
 
   # Enable Flakes on NixOS
