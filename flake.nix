@@ -100,7 +100,7 @@
 
       # Desktop
       nixosConfigurations = {
-        tuxedo = lib.nixosSystem {
+        ${vars.desktop} = lib.nixosSystem {
           inherit system;
           specialArgs = { inherit inputs; };
           modules = [
@@ -111,9 +111,10 @@
       };
 
     # Home configuration
+    
     # Desktop
     homeConfigurations = {
-      tuxedo = home-manager.lib.homeManagerConfiguration {
+      ${vars.desktop} = home-manager.lib.homeManagerConfiguration {
         extraSpecialArgs = { inherit inputs; };
         inherit pkgs;
         modules = [
