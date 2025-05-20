@@ -11,9 +11,11 @@ in
 
     # NixOS basic configuration
     ../../configs/nixos.nix
-    # ../../packages.nix
 
-    # Enable Home Manager
+    # Packages
+    ../../packages.nix
+
+    # Enables Home-manager
     inputs.home-manager.nixosModules.home-manager
 
   ];
@@ -30,16 +32,6 @@ in
     description = vars.user1;
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.fish;
-    packages = with pkgs; [
-      vim
-      neovim
-      git
-      kitty
-      fish
-      librewolf
-      fastfetch
-      yazi
-    ];
   };
 
     # Fish enabling and fastfetch execution

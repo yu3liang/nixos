@@ -111,7 +111,6 @@
       };
 
     # Home configuration
-    
     # Desktop
     homeConfigurations = {
       ${vars.desktop} = home-manager.lib.homeManagerConfiguration {

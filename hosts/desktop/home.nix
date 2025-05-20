@@ -1,18 +1,20 @@
 { config, pkgs, ... }:
 
+let
+  vars = import ../../variables.nix;
+in
+
 {
   imports = [
     ../../configs/environments/hyprland/hyprland.nix
 
-    # Programs configuration link
+    # Programs configuration symlink
     ./home-link-dotfiles.nix
   ];
 
-  home.username = "yu3liang";
-  home.homeDirectory = "/home/yu3liang";
-  home.stateVersion = "24.11"; # Don't change unless necessary
-
-  nixpkgs.config.allowUnfree = true;
+  # Sets username and home directory path from variables.nix
+  home.username = vars.user1;
+  home.homeDirectory = vars.homeDirectoryUser1;
 
   # User packages
   home.packages = with pkgs; [
@@ -34,13 +36,31 @@
     trigger-control
     wacomtablet
     firefox
-
   ];
   
-  home.sessionVariables = {
-    # EDITOR = "emacs";
+  
+  # Sets settings software
+  xdg.desktopEntries."org.gnome.Settings" = {
+    name = "Settings";
+    comment = "Gnome Control Center";
+    icon = "org.gnome.Settings";
+    exec = "env XDG_CURRENT_DESKTOP=gnome ${pkgs.gnome.gnome-control-center}/bin/gnome-control-center";
+    categories = [ "X-Preferences" ];
+    terminal = false;
   };
 
-  # Let Home Manager install and manage itself
+  # Sets environment files and variables
+  home.file = { };
+  home.sessionVariables = { };
+
+  # Adds "$HOME/.local/bin" to PATH
+  home.sessionPath = [
+    "$HOME/.local/bin"
+  ];
+
+  # Let Home-manager install and manage itself
   programs.home-manager.enable = true;
+
+  # Sets Home-manager version
+  home.stateVersion = "24.11"; # Don't change unless necessary
 }
