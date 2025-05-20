@@ -2,9 +2,9 @@
 
 {
   # Enable the Hyprland compositor
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
+    # programs.hyprland = {
+    # enable = true;
+    # xwayland.enable = true;
   };
 
   home.sessionVariables = {
