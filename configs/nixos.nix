@@ -1,4 +1,4 @@
-{ pkgs, config, libs, ... }:
+{ pkgs, config, ... }:
 
 let
   vars = import ../variables.nix;

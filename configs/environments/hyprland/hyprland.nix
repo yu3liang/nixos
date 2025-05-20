@@ -1,4 +1,4 @@
-{ config, pkgs, ...}: 
+{ pkgs, ...}: 
 
 {
   # Enable the Hyprland compositor
