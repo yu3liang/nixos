@@ -21,9 +21,6 @@
     emacs
     anki
 
-    # College
-    ciscoPacketTracer8
-
     # Communication
     discord
 
