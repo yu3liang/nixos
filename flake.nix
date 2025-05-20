@@ -105,7 +105,6 @@
           specialArgs = { inherit inputs; };
           modules = [
             ./hosts/desktop/configuration.nix
-            ./configs/environments/plasma/plasma.nix
             inputs.nixvim.nixosModules.nixvim
           ];
         };
