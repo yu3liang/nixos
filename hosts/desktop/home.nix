@@ -15,29 +15,6 @@ in
   # Sets username and home directory path from variables.nix
   home.username = vars.user1;
   home.homeDirectory = vars.homeDirectoryUser1;
-
-  # User packages
-  home.packages = with pkgs; [
-    # Productivity
-    vscode
-    emacs
-    anki
-
-    # Communication
-    discord
-
-    # Media
-    spotify
-    mpv
-
-    # Utils
-    obs-studio
-    dualsensectl
-    trigger-control
-    wacomtablet
-    firefox
-  ];
-  
   
   # Sets settings software
   xdg.desktopEntries."org.gnome.Settings" = {
