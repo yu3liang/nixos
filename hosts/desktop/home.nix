@@ -3,7 +3,6 @@
 {
   imports = [
     ../../configs/environments/hyprland/hyprland.nix
-    ../../configs/environments/plasma/plasma.nix
 
     # Programs configuration link
     ./home-link-dotfiles.nix
