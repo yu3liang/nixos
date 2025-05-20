@@ -20,7 +20,7 @@
     gnome-control-center
     gnome.gvfs
     sushi
-    gnome.seahorse
+    seahorse
     gnome-tweaks
     gtk4
     gtk3
