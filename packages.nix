@@ -17,7 +17,7 @@
     glib
     nautilus-open-any-terminal
     libadwaita
-    gnome.gnome-control-center
+    gnome-control-center
     gnome.gvfs
     gnome.sushi
     gnome.seahorse
