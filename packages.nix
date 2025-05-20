@@ -4,7 +4,7 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [
-    "pkgs.dotnet-sdk-6.0.428"
+    "dotnet-sdk-6.0.428"
   ];
 
   # Adds `swayosd` to udev runtime for event handling.
