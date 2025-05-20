@@ -1,4 +1,4 @@
-{ config, pkgs, libs, ... }:
+{ config, pkgs, ... }:
 
 {
   services.xserver = {
@@ -21,8 +21,6 @@
   # Activate KDE Plasma 6 and SDDM login manager
   # services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
-  programs.ssh.askPassword = lib.mkForce "/nix/store/74c0s4xxw5v2f0fswhkb0gi85vhci03h-seahorse-47.0.1/libexec/seahorse/ssh-askpass";
-
 
   # Display synchronization and optimization
   # environment.variables = {
