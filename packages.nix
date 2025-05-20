@@ -19,7 +19,7 @@
     libadwaita
     gnome-control-center
     gnome.gvfs
-    gnome.sushi
+    sushi
     gnome.seahorse
     gnome-tweaks
     gtk4
