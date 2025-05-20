@@ -11,9 +11,9 @@
   environment.systemPackages = with pkgs; [
     
     # GNOME
-    gnome.gnome-bluetooth
-    gnome.gnome-settings-daemon
-    gnome.gnome-software
+    gnome-bluetooth
+    gnome-settings-daemon
+    gnome-software
     glib
     nautilus-open-any-terminal
     libadwaita
@@ -21,7 +21,7 @@
     gnome.gvfs
     gnome.sushi
     gnome.seahorse
-    gnome.gnome-tweaks
+    gnome-tweaks
     gtk4
     gtk3
 
