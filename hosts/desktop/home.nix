@@ -46,7 +46,7 @@
 
   # Fish enabling and fastfetch execution
   programs.fish = {
-    enable = true; # Already enabled at ~/nixos/modules/nixos/base-pkgs.nix
+    enable = true;
 
     interactiveShellInit = ''
       fastfetch
