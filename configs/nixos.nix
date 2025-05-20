@@ -5,38 +5,8 @@ let
 in
 
 {
-  # ==========================
-  # ---------Audio------------
-  # ==========================
-
-  # Disables the legacy PulseAudio server.
-  services.pulseaudio.enable = false;
-
-  # Enables the real-time kit daemon, which allows audio processes to get real-time CPU scheduling (reduces audio glitches).
-  security.rtkit.enable = true;
-
-  services.pipewire = {
-    # Enables PipeWire
-    enable = true;
-
-    # Enables ALSA (Advanced Linux Sound Architecture) support.
-    alsa.enable = true;
-
-    # Adds 32-bit ALSA support (for compatibility with some apps/games).
-    alsa.support32Bit = true;
-
-    # Provides a PulseAudio-compatible server via PipeWire (so apps expecting PulseAudio still work).
-    pulse.enable = true;
-    
-    # Enable JACK support for professional audio.
-    # jack.enable = true;
-  };
-
-
-
-  # ==========================
-  # --------Bootloader--------
-  # ==========================
+  ############################################################### BOOTLOADER #####################################################################
+  ################################################################################################################################################
 
   # Enables the systemd-boot bootloader, which is a simple UEFI boot manager.
   boot.loader.systemd-boot.enable = true;
@@ -44,11 +14,46 @@ in
   # Allows NixOS to write to EFI variables, which is required for managing UEFI boot entries (needed for systemd-boot and other UEFI bootloaders).
   boot.loader.efi.canTouchEfiVariables = true;
 
+  ################################################################################################################################################
+  ################################################################################################################################################
 
+  # ----------------------------------------------------------------------------------------------------------------------------------------------
 
-  # ==========================
-  # -------Localization-------
-  # ==========================
+  ########################### NETWORKING ############################
+  ###################################################################
+
+  # Sets the system hostname.
+  networking.hostName = vars.desktop;
+
+  # Enable DHCP for network interfaces
+  # networking.useDHCP = lib.mkDefault true;
+
+  # Enable network manager
+  networking.networkmanager.enable = true;
+  
+  # Wireless support via wpa_supplicant
+  # networking.wireless.enable = true;
+
+  # Proxy
+  # networking.proxy.default = "http://user:password@proxy:port/";
+  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+
+  # Enable firewall
+  networking.firewall.enable = true;
+
+  # Open ports in the firewall.
+  # networking.firewall.allowedTCPPorts = [ ... ];
+  # networking.firewall.allowedUDPPorts = [ ... ];
+  # Or disable the firewall altogether.
+  # networking.firewall.enable = false;
+
+  ###################################################################
+  ###################################################################
+
+  # -----------------------------------------------------------------
+
+  ########################### LOCALIZATION #############################
+  ######################################################################
 
   # Sets your system timezone.
   time.timeZone = "America/Sao_Paulo";
@@ -72,11 +77,81 @@ in
   # Sets the console keyboard layout
   console.keyMap = "us-acentos";
 
+  ######################################################################
+  ######################################################################
 
+  # --------------------------------------------------------------------
 
-  # ==========================
-  # --------Bluetooth---------
-  # ==========================
+  ######################################################## AUDIO ##########################################################
+  #########################################################################################################################
+
+  # Disables the legacy PulseAudio server.
+  services.pulseaudio.enable = false;
+
+  # Enables the real-time kit daemon, which allows audio processes to get real-time CPU scheduling (reduces audio glitches).
+  security.rtkit.enable = true;
+
+  services.pipewire = {
+    # Enables PipeWire
+    enable = true;
+
+    # Enables ALSA (Advanced Linux Sound Architecture) support.
+    alsa.enable = true;
+
+    # Adds 32-bit ALSA support (for compatibility with some apps/games).
+    alsa.support32Bit = true;
+
+    # Provides a PulseAudio-compatible server via PipeWire (so apps expecting PulseAudio still work).
+    pulse.enable = true;
+    
+    # Enable JACK support for professional audio.
+    # jack.enable = true;
+  };
+  #########################################################################################################################
+  #########################################################################################################################
+
+  # -----------------------------------------------------------------------------------------------------------------------
+
+  ################################# VIDEO ###################################
+  ###########################################################################
+
+  # Enables general graphics hardware support.
+  hardware.graphics.enable = true;
+  # Sets the X server to use the NVIDIA driver.
+  services.xserver.videoDrivers = [ "nvidia" ];
+
+  hardware.nvidia = {
+    # Enables kernel mode-setting for NVIDIA (required for some features).
+    modesetting.enable = true;
+    
+    # Disables fine-grained power management.
+    powerManagement = {
+      enable = false;
+      finegrained = false;
+    };
+    
+    # Uses the proprietary (not open source) NVIDIA driver.
+    open = false;
+
+    # Installs the NVIDIA settings tool.
+    nvidiaSettings = true;
+    
+    # Uses the stable version of the NVIDIA driver package.
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
+
+  # Display synchronization and optimization
+  environment.variables = {
+    "__GL_SYNC_DISPLAY_DEVICE" = "HDMI-0";
+    "VDPAU_NVIDIA_SYNC_DISPLAY_DEVICE" = "HDMI-0";
+  };
+  ###########################################################################
+  ###########################################################################
+
+  # -------------------------------------------------------------------------
+
+  ############################## BLUETOOTH #################################
+  ##########################################################################
 
   # Graphical Bluetooth manager (GUI)
   services.blueman.enable = true;
@@ -109,71 +184,24 @@ in
     };
   };
 
+  ##########################################################################
+  ##########################################################################
 
+  # ------------------------------------------------------------------------
 
-  # ==========================
-  # --------Networking--------
-  # ==========================
-
-  # Sets the system hostname.
-  networking.hostName = vars.desktop;
-
-  # Enable DHCP for network interfaces
-  # networking.useDHCP = lib.mkDefault true;
-
-  # Enable network manager
-  networking.networkmanager.enable = true;
-  
-  # Wireless support via wpa_supplicant
-  # networking.wireless.enable = true;
-
-  # Proxy
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable firewall
-  networking.firewall.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-
-
-  # ==========================
-  # ---------Printing---------
-  # ==========================
+  ########################## PRINTING ############################
+  ################################################################
 
   # Turns on the printing service (CUPS) to add and use printers.
   services.printing.enable = true;
 
+  ################################################################
+  ################################################################
 
-  # ==========================
-  # ----------System----------
-  # ==========================
+  # --------------------------------------------------------------
 
-  # Allows installation of unfree (proprietary) packages from Nixpkgs.
-  nixpkgs.config.allowUnfree = true;
-
-  # Enables the OpenSSH server for remote access.
-  services.openssh = {
-    enable = true;
-    settings = {
-      # Disables password login for SSH to your machine (use keys instead).
-      PasswordAuthentication = false;
-    };
-  };
-
-  # Sets the NixOS system state version. This should match your NixOS release and only be changed when upgrading to a new release.
-  system.stateVersion = "24.11"; # Don't change unless necessary
-
-
-
-  # ==========================
-  # ---------Services---------
-  # ==========================
+  ################################ SERVICES ###################################
+  #############################################################################
 
   services = {
     # Installs core GNOME utilities (file manager, calculator, etc.).
@@ -229,41 +257,32 @@ in
     # Enables ACPI daemon for handling power events (lid close, etc.).
     # acpid.enable = true;
   };
+  #############################################################################
+  #############################################################################
 
+  # ---------------------------------------------------------------------------
 
+  ########################################################## SYSTEM ###############################################################
+  #################################################################################################################################
 
-  # ==========================
-  # ----------Video-----------
-  # ==========================
+  # Allows installation of unfree (proprietary) packages from Nixpkgs.
+  nixpkgs.config.allowUnfree = true;
 
-  # Enables general graphics hardware support.
-  hardware.graphics.enable = true;
-  # Sets the X server to use the NVIDIA driver.
-  services.xserver.videoDrivers = [ "nvidia" ];
-
-  hardware.nvidia = {
-    # Enables kernel mode-setting for NVIDIA (required for some features).
-    modesetting.enable = true;
-    
-    # Disables fine-grained power management.
-    powerManagement = {
-      enable = false;
-      finegrained = false;
+  # Enables the OpenSSH server for remote access.
+  services.openssh = {
+    enable = true;
+    settings = {
+      # Disables password login for SSH to your machine (use keys instead).
+      PasswordAuthentication = false;
     };
-    
-    # Uses the proprietary (not open source) NVIDIA driver.
-    open = false;
-
-    # Installs the NVIDIA settings tool.
-    nvidiaSettings = true;
-    
-    # Uses the stable version of the NVIDIA driver package.
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
-  # Display synchronization and optimization
-  environment.variables = {
-    "__GL_SYNC_DISPLAY_DEVICE" = "HDMI-0";
-    "VDPAU_NVIDIA_SYNC_DISPLAY_DEVICE" = "HDMI-0";
-  };
+  # Sets the NixOS system state version. This should match your NixOS release and only be changed when upgrading to a new release.
+  system.stateVersion = "24.11"; # Don't change unless necessary
+
+  #################################################################################################################################
+  #################################################################################################################################
+
+  # -------------------------------------------------------------------------------------------------------------------------------
+  
 }
