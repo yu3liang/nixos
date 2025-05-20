@@ -70,7 +70,7 @@ in
   };
 
   # Sets the console keyboard layout
-  console.keyMap = "us-intl";
+  console.keyMap = "us-acentos";
 
 
 
