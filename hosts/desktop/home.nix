@@ -41,15 +41,6 @@
     # EDITOR = "emacs";
   };
 
-  # Fish enabling and fastfetch execution
-  programs.fish = {
-    enable = true;
-
-    interactiveShellInit = ''
-      fastfetch
-    '';
-  };
-
   # Let Home Manager install and manage itself
   programs.home-manager.enable = true;
 }

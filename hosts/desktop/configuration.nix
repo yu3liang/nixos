@@ -29,6 +29,7 @@ in
     isNormalUser = true;
     description = vars.user1;
     extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.fish;
     packages = with pkgs; [
       vim
       neovim
@@ -39,6 +40,15 @@ in
       fastfetch
       yazi
     ];
+  };
+
+    # Fish enabling and fastfetch execution
+  programs.fish = {
+    enable = true;
+
+    interactiveShellInit = ''
+      fastfetch
+    '';
   };
 
   # Enable Flakes on NixOS
