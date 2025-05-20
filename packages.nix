@@ -19,12 +19,9 @@
     gnome-settings-daemon
     gnome-software
     glib
-    nautilus-open-any-terminal
     libadwaita
     gnome-control-center
     gnome.gvfs
-    sushi
-    seahorse
     gnome-tweaks
     gtk4
     gtk3
@@ -44,94 +41,22 @@
     gradience
     kitty-themes
 
-    # Code
-    yarn
-    nodejs_22
-    stylua
-    codespell
-    isort
-    black
-    prettierd
-    shfmt
-    jsbeautifier
-    lua-language-server
-    dart-sass
-    bun
-    neovide
-    fzf
-    libgcc
-    libgccjit
-    bintools-unwrapped
-    nixpkgs-fmt
-    python3
-    gcc-unwrapped
-    gnumake
-    gccgo
-    cargo
-    ripgrep
-    fd
-    jq
-    nil
-    rustfmt
-    java-language-server
-    jsonfmt
-    luaformatter
-    typescript
-    meson
-    vala
-    cmake
-    pkg-config
-    uncrustify
-    #vala-language-server
-    #neovim-unwrapped
-
-    # Homelab
-    rpi-imager
-    super-slicer-beta
-    orca-slicer
-
-    # Information
-    lutris
-    openra
-    firefox
-    bitwarden
-    vesktop
-    #betaflight-configurator
-    #BlHeliSuite32xl
-    #betaflightConfigurator
     whatsapp-for-linux
-    #kicad
-
-    # Office
-    obsidian
     libreoffice-fresh
-    nextcloud-client
-    mailspring
-    localsend
 
     # Media
     obs-studio
     wf-recorder
-    grimblast
-    wayshot
     spotify
     gimp
     gthumb
-    jellyfin-media-player
-    heroic
 
     # System
     clipse
-    proxmox-backup-client
     inputs.eza.packages.${system}.default
     inputs.hypridle.packages.${system}.default
-    pika-backup
-    envsubst
     grim
     deadnix
-    mesa-demos
-    mesa
-    nitch
     coreutils
     powerstat
     mate.mate-polkit
@@ -150,10 +75,7 @@
     distrobox
     nixos-icons
     libsecret
-    wireguard-tools
-    wireguard-go
     networkmanagerapplet
-    intel-gpu-tools
     usbutils
     btop
     stress-ng

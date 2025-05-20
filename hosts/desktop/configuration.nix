@@ -34,7 +34,7 @@ in
     shell = pkgs.fish;
   };
 
-    # Fish enabling and fastfetch execution
+  # Fish enabling and fastfetch execution
   programs.fish = {
     enable = true;
 
