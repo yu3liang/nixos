@@ -35,9 +35,6 @@ in
     "$HOME/.local/bin"
   ];
 
-  # Let Home-manager install and manage itself
-  programs.home-manager.enable = true;
-
   # Sets Home-manager version
   home.stateVersion = "24.11"; # Don't change unless necessary
 }
