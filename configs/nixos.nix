@@ -217,10 +217,10 @@ in
     gnome.gnome-keyring.enable = true;
 
     # Enable Tracker, a file indexer/search tool.
-    gnome.tracker.enable = true;
+    gnome.tinysparql.enable = true;
 
     # Enable Tracker Miners, which scan files for Tracker.
-    gnome.tracker-miners.enable = true;
+    gnome.localsearch.enable = true;
 
     # Enable the XFCE desktop environment.
     xserver.desktopManager.xfce.enable = true;
