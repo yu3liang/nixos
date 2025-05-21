@@ -89,6 +89,7 @@
     libsecret
     mate.mate-polkit
     polkit
+    rofi-wayland
     slurp
     swaynotificationcenter
     swayosd
