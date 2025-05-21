@@ -1,12 +1,6 @@
 { pkgs, ...}: 
 
 {
-  # Enable the Hyprland compositor
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
-
   # Set session variables
   home.sessionVariables = {
     WLR_NO_HARDWARE_CURSORS = "1"; # Fix invisible cursor

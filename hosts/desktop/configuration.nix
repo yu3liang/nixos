@@ -22,6 +22,12 @@ in
     inputs.nixvim.nixosModules.nixvim
   ];
 
+  # Enable the Hyprland compositor
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
+
   # User configuration
   users.users.${vars.user1} = {
     isNormalUser = true;
