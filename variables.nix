@@ -1,12 +1,12 @@
 let
   # Set username
   user1 = "yu3liang";
+
+  # Set desktop
+  desktop = "tuxedo";
 in
   {
-    # Set desktop user
-    desktop = "tuxedo";
     user1 = user1;
-
-    # Set home directory
+    desktop = desktop;
     homeDirectoryUser1 = "/home/${user1}";
   }

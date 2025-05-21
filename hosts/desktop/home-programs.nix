@@ -5,29 +5,30 @@
     inputs.ags.homeManagerModules.default
   ];
 
+  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # Let Home-manager install and manage itself
   programs.home-manager.enable = true;
 
+  # Program configurations
   programs = {
 
-    steam = {
+    git = {
       enable = true;
-
-      remotePlay.openFirewall = true;
-      dedicatedServer.openFirewall = true;
+      userName = "yu3liang";
+      userEmail = "gustavo.lampert@gmail.com";
+      extraConfig = {
+        credential.helper = "${
+          pkgs.git.override { withLibsecret = true; }
+        }/bin/git-credential-libsecret";
+      };
     };
 
     ags = {
       enable = true;
       # configDir = ./home-dotfiles-desktop/ags;
       extraPackages = [ pkgs.libsoup_3 ];
-    };
-
-    kitty = {
-      enable = true;
-      # extraConfig = builtins.readFile ./home-dotfiles-desktop/kitty/kitty.conf;
     };
 
     vscode = {
@@ -42,20 +43,11 @@
       userSettings = { };
     };
 
-    git = {
+    steam = {
       enable = true;
-      userName = "yu3liang";
-      userEmail = "gusatvo.lampert@gmail.com";
-      extraConfig = {
-        credential.helper = "${
-          pkgs.git.override { withLibsecret = true; }
-        }/bin/git-credential-libsecret";
-      };
+
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
     };
   };
-
-  # Packages that should be installed to the user profile.
-  home.packages = [
-    pkgs.htop
-  ];
 }

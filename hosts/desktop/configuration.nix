@@ -12,19 +12,15 @@ in
     # NixOS basic configuration
     ../../configs/nixos.nix
 
-    # Packages
+    # Install packages
     ../../packages.nix
 
-    # Enables Home-manager
+    # Enable Home-manager
     inputs.home-manager.nixosModules.home-manager
 
+    # Enable NixVim
+    inputs.nixvim.nixosModules.nixvim
   ];
-
-  # Enable the Hyprland compositor
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
 
   # User configuration
   users.users.${vars.user1} = {
@@ -34,7 +30,7 @@ in
     shell = pkgs.fish;
   };
 
-  # Fish enabling and fastfetch execution
+  # Enable fish and fastfetch execution
   programs.fish = {
     enable = true;
 

@@ -11,15 +11,26 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Command helper
-    nh = {
-      url = "github:nix-community/nh";
+    # Hyprland
+    hyprland = {
+      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    };
+
+    # Hyprland plugins
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
+
+    # Waybar
+    waybar = {
+      url = "github:alexays/waybar";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Software center
-    nix-software-center = {
-      url = "github:snowfallorg/nix-software-center";
+    # Desktop shell (customization)
+    ags = {
+      url = "github:Aylur/ags";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -29,22 +40,26 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Software center
+    nix-software-center = {
+      url = "github:snowfallorg/nix-software-center";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Neovim
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # ls (?)
-    eza = {
-      url = "github:eza-community/eza";
-      inputs.nixpkgs.follows = "nixpkgs";
+    # Lock screen
+    hyprlock = {
+      url = "github:hyprwm/Hyprlock";
     };
 
-    # Desktop shell (customization)
-    ags = {
-      url = "github:Aylur/ags";
-      inputs.nixpkgs.follows = "nixpkgs";
+    # Idle
+    hypridle = {
+      url = "github:hyprwm/Hypridle";
     };
 
     # ?
@@ -58,33 +73,6 @@
       url = "github:abenz1267/walker";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # Waybar
-    waybar = {
-      url = "github:alexays/waybar";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # Hyprland
-    hyprland = {
-      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    };
-
-    # Lock screen
-    hyprlock = {
-      url = "github:hyprwm/Hyprlock";
-    };
-
-    # Idle
-    hypridle = {
-      url = "github:hyprwm/Hypridle";
-    };
-
-    # Plugins
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
   };
 
   outputs = { self, nixpkgs, home-manager, nixvim, ... }@inputs:
@@ -95,23 +83,19 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in
     {
-      # NixOS system configuration output
-      # Used with `nixos-rebuild --flake .#<hostname>`
-
-      # Desktop
+      # NixOS system desktop configuration output
+      # Used with `nixos-rebuild --flake .#<desktopName>`
       nixosConfigurations = {
         ${vars.desktop} = lib.nixosSystem {
           inherit system;
           specialArgs = { inherit inputs; };
           modules = [
             ./hosts/desktop/configuration.nix
-            inputs.nixvim.nixosModules.nixvim
           ];
         };
       };
 
-    # Home configuration
-    # Desktop
+    # Desktop home configuration
     homeConfigurations = {
       ${vars.desktop} = home-manager.lib.homeManagerConfiguration {
         extraSpecialArgs = { inherit inputs; };

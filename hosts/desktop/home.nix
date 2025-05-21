@@ -6,17 +6,18 @@ in
 
 {
   imports = [
+    # Enable Hyprland
     ../../configs/environments/hyprland/hyprland.nix
 
-    # Programs configuration symlink
+    # Symlink dotfiles to home directory
     ./home-link-dotfiles.nix
   ];
 
-  # Sets username and home directory path from variables.nix
+  # Set username and home directory path from variables.nix
   home.username = vars.user1;
   home.homeDirectory = vars.homeDirectoryUser1;
   
-  # Sets settings software
+  # Build settings software
   xdg.desktopEntries."org.gnome.Settings" = {
     name = "Settings";
     comment = "Gnome Control Center";
@@ -26,15 +27,15 @@ in
     terminal = false;
   };
 
-  # Sets environment files and variables
+  # Set environment files and variables
   home.file = { };
   home.sessionVariables = { };
 
-  # Adds "$HOME/.local/bin" to PATH
+  # Add "$HOME/.local/bin" to PATH
   home.sessionPath = [
     "$HOME/.local/bin"
   ];
 
-  # Sets Home-manager version
+  # Set Home-manager version
   home.stateVersion = "24.11"; # Don't change unless necessary
 }

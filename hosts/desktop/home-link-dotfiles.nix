@@ -1,8 +1,8 @@
 { config, ... }:
 
 {
-  # Hyprland configuration
-  home.file."${config.xdg.configHome}/hypr/hyprland.conf" = { # TODO
+  # Hyprland
+  home.file."${config.xdg.configHome}/hypr/hyprland.conf" = {
     source = ../../configs/home/dotfiles/hypr/hyprland.conf;
     recursive = true;
     enable = true;
