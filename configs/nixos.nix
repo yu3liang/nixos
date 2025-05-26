@@ -204,27 +204,6 @@ in
   #############################################################################
 
   services = {
-    # Install core GNOME utilities (file manager, calculator, etc.).
-    gnome.core-utilities.enable = true;
-
-    # Install the GNOME Shell desktop environment.
-    gnome.core-shell.enable = true;
-
-    # Enable GDM, the GNOME Display Manager (login screen).
-    xserver.displayManager.gdm.enable = true;
-
-    # Enable GNOME Keyring for secure password storage.
-    gnome.gnome-keyring.enable = true;
-
-    # Enable Tracker, a file indexer/search tool.
-    gnome.tinysparql.enable = true;
-
-    # Enable Tracker Miners, which scan files for Tracker.
-    gnome.localsearch.enable = true;
-
-    # Enable the XFCE desktop environment.
-    xserver.desktopManager.xfce.enable = true;
-   
     xserver = {
       # Enable the X11 window system.
       enable = true;
@@ -247,7 +226,7 @@ in
     # Provide virtual filesystem support (e.g., mounting remote filesystems).
     gvfs.enable = true;
     
-    # Enable Flatpak, a system for installing sandboxed apps.
+    # Enable Flatpak, a system for installing sandboxed apps.w
     flatpak.enable = true;
 
     # Disable the power profiles daemon (used for power management).

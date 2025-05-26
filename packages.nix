@@ -38,6 +38,7 @@
     
     # Studies
     anki
+    jflap
 
     # Communication
     discord
