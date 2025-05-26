@@ -2,8 +2,8 @@
 
 {
   # Hyprland
-  home.file."${config.xdg.configHome}/hypr/hyprland.conf" = {
-    source = ../../configs/home/dotfiles/hypr/hyprland.conf;
+  home.file."${config.xdg.configHome}/hypr" = {
+    source = ../../configs/home/dotfiles/hypr;
     recursive = true;
     enable = true;
   };
