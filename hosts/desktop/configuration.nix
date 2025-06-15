@@ -45,6 +45,14 @@ in
     '';
   };
 
+  # Enable Steam
+  programs.steam = {
+    enable = true;
+
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+  };
+
   # Enable Flakes on NixOS
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 

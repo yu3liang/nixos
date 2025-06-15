@@ -33,21 +33,6 @@
 
     vscode = {
       enable = true;
-      extensions = with pkgs.vscode-extensions; [
-        bbenoist.nix
-        jnoortheen.nix-ide
-        piousdeer.adwaita-theme
-        pkief.material-product-icons
-        #asvetliakov.vscode-neovim
-      ];
-      userSettings = { };
-    };
-
-    steam = {
-      enable = true;
-
-      remotePlay.openFirewall = true;
-      dedicatedServer.openFirewall = true;
     };
   };
 }

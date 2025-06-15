@@ -49,7 +49,6 @@
     spotify
     mpv
     obs-studio
-    wf-recorder
 
     # Gaming
     steam
@@ -59,11 +58,10 @@
 
     # Office
     libreoffice-fresh
+    pdf4qt
 
     # Image manipulation
     gimp
-    gthumb
-    imagemagick
 
     # CLI utils
     fastfetch
@@ -103,6 +101,8 @@
     wlogout
     wlr-randr
     xdg-desktop-portal
+    yarn
+    nodejs
 
     # GNOME
     gnome-control-center
@@ -133,7 +133,6 @@
     hyprpicker
     inputs.anyrun.packages.${system}.default
     inputs.walker.packages.${system}.default
-    kitty-themes
     nixos-icons
     nwg-look
     pywal

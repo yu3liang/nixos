@@ -117,6 +117,7 @@ in
 
   # Enable general graphics hardware support.
   hardware.graphics.enable = true;
+  
   # Set the X server to use the NVIDIA driver.
   services.xserver.videoDrivers = [ "nvidia" ];
 
@@ -145,6 +146,7 @@ in
     "__GL_SYNC_DISPLAY_DEVICE" = "HDMI-0";
     "VDPAU_NVIDIA_SYNC_DISPLAY_DEVICE" = "HDMI-0";
   };
+
   ###########################################################################
   ###########################################################################
 

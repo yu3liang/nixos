@@ -11,6 +11,9 @@ in
 
     # Symlink dotfiles to home directory
     ./home-link-dotfiles.nix
+
+    # Enable programs and settings
+    ./home-programs.nix
   ];
 
   # Set username and home directory path from variables.nix
@@ -38,4 +41,7 @@ in
 
   # Set Home-manager version
   home.stateVersion = "24.11"; # Don't change unless necessary
+
+  # Disable warning
+  home.enableNixpkgsReleaseCheck = false;
 }
