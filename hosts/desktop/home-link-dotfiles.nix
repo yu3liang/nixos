@@ -21,5 +21,12 @@
     recursive = true;
     enable = true;
   };
+
+  # Waybar
+  home.file."${config.xdg.configHome}/waybar" = {
+    source = ../../configs/home/dotfiles/waybar;
+    recursive = true;
+    enable = true;
+  };
 }
 
