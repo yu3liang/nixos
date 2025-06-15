@@ -8,10 +8,10 @@
     git
 
     # Text editors
-    emacs
     nano
-    neovim
     vim
+    neovim
+    emacs
     vscode
 
     # File managers
@@ -34,12 +34,12 @@
 
     # Studies
     anki
-    jflap
-
+    
     # Media
     spotify
     mpv
     obs-studio
+    deluge
 
     # Gaming
     steam
@@ -55,7 +55,6 @@
     fastfetch
     btop
     wget
-    playerctl
     deadnix
 
     # Device utilities
@@ -64,7 +63,6 @@
     wacomtablet
 
     # System utilities
-    brightnessctl
     coreutils
     dunst
     grim
@@ -86,8 +84,6 @@
     wlogout
     wlr-randr
     xdg-desktop-portal
-    yarn
-    nodejs
 
     # GNOME utilities
     gnome-control-center
@@ -100,6 +96,7 @@
     gtk4
     gtk3
     glib
+    nwg-look
 
     # Networking
     networkmanagerapplet
@@ -125,7 +122,6 @@
 
     # Desktop utilities
     hyprpaper
-    swww
     waybar
     inputs.anyrun.packages.${system}.default
     inputs.hypridle.packages.${system}.default
