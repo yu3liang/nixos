@@ -116,6 +116,7 @@
     # Theming
     gradience
     hyprpicker
+    hyprcursor
     nixos-icons
     nwg-look
     pywal
