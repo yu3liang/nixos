@@ -212,6 +212,12 @@ in
   # Allow installation of unfree (proprietary) packages from Nixpkgs
   nixpkgs.config.allowUnfree = true;
 
+  # Allow insecure packages (don't know what these are for lol)
+  nixpkgs.config.permittedInsecurePackages = [
+    "dotnet-sdk-6.0.428"
+    "dotnet-runtime-6.0.36"
+  ];
+
   # Enable the OpenSSH server for remote access
   services.openssh = {
     enable = true;

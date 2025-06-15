@@ -1,21 +1,12 @@
 { pkgs, inputs, ... }:
 
 {
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  # Allow insecure packages (don't know what these are for lol)
-  nixpkgs.config.permittedInsecurePackages = [
-    "dotnet-sdk-6.0.428"
-    "dotnet-runtime-6.0.36"
-  ];
-
-  # Packages
+  # <----Packages---->
   environment.systemPackages = with pkgs; [
 
     # Version control
     git
-    
+
     # Text editors
     emacs
     nano
@@ -31,19 +22,19 @@
 
     # Shells
     fish
-    
-    # Navigation
-    firefox
+
+    # Browsers
     librewolf
-    
-    # Studies
-    anki
-    jflap
+    firefox
 
     # Communication
     discord
     teams-for-linux
     whatsapp-for-linux
+
+    # Studies
+    anki
+    jflap
 
     # Media
     spotify
@@ -53,9 +44,6 @@
     # Gaming
     steam
 
-    # Funsies
-    cmatrix
-
     # Office
     libreoffice-fresh
     pdf4qt
@@ -63,27 +51,24 @@
     # Image manipulation
     gimp
 
-    # CLI utils
+    # CLI utilities
     fastfetch
     btop
     wget
     playerctl
     deadnix
 
-    # Device utils
+    # Device utilities
     dualsensectl
     trigger-control
     wacomtablet
 
-    # System utils
+    # System utilities
     brightnessctl
     coreutils
     dunst
     grim
     inotify-tools
-    inputs.anyrun.packages.${system}.default
-    inputs.hypridle.packages.${system}.default
-    inputs.walker.packages.${system}.default
     libnotify
     libsecret
     mate.mate-polkit
@@ -104,7 +89,7 @@
     yarn
     nodejs
 
-    # GNOME
+    # GNOME utilities
     gnome-control-center
     gnome-settings-daemon
     gnome-software
@@ -131,16 +116,22 @@
     # Theming
     gradience
     hyprpicker
-    inputs.anyrun.packages.${system}.default
-    inputs.walker.packages.${system}.default
     nixos-icons
     nwg-look
     pywal
+    inputs.anyrun.packages.${system}.default
+    inputs.walker.packages.${system}.default
 
-    # Desktop
+    # Desktop utilities
     hyprpaper
     swww
     waybar
+    inputs.anyrun.packages.${system}.default
+    inputs.hypridle.packages.${system}.default
+    inputs.walker.packages.${system}.default
+
+    # Fun utilities
+    cmatrix
   ];
 
   # Add `swayosd` to udev runtime for event handling.
