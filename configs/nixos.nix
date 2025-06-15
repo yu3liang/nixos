@@ -2,6 +2,8 @@
 
 let
   vars = import ../variables.nix;
+  tuigreet = "${pkgs.greetd.tuigreet}/bin/tuigreet";
+  session = "${pkgs.hyprland}/bin/Hyprland";
 in
 
 {
@@ -197,6 +199,22 @@ in
     
     # Enable Flatpak (system for installing sandboxed apps)
     flatpak.enable = true;
+
+    # Enable greetd (display manager)
+    greetd = {
+      enable = true;
+      settings = {
+        initial_session = {
+          command = "${session}";
+          user = vars.user1;
+        };
+
+        default_session = {
+          command = "${tuigreet} --greeting 'Welcome to NixOS!' --asterisks --remember --remember-user-session --time -cmd ${session}";
+          user = "greeter";
+        };
+      };
+    };
 
     # Disable the power profiles daemon (used for power management)
     # power-profiles-daemon.enable = false;
