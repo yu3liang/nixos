@@ -40,6 +40,7 @@
     mpv
     obs-studio
     deluge
+    kdePackages.xwaylandvideobridge
 
     # Gaming
     steam
