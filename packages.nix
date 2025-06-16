@@ -64,6 +64,7 @@
 
     # System utilities
     coreutils
+    psmisc
     dunst
     grim
     inotify-tools
@@ -97,6 +98,7 @@
     gtk3
     glib
     nwg-look
+    nwg-bar
 
     # Networking
     networkmanagerapplet
